@@ -6,16 +6,20 @@ body:
     id: problem
     attributes:
       label: Vấn đề cần giải quyết
+      description: Mô tả pain point hoặc mục tiêu
+      placeholder: "Người dùng đang gặp vấn đề gì?"
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
       label: Giải pháp đề xuất
-      placeholder: Mô tả ngắn gọn
+      description: Hướng tiếp cận cấp cao
+      placeholder: "Mô tả ngắn gọn"
     validations:
       required: true
   - type: textarea
     id: alternatives
     attributes:
       label: Phương án thay thế
+      description: Các cách khác đã cân nhắc (nếu có)

@@ -6,17 +6,20 @@ body:
     id: severity
     attributes:
       label: Severity
-      options: [sev/critical, sev/high]
+      options:
+        - sev/critical
+        - sev/high
     validations:
       required: true
   - type: textarea
     id: impact
     attributes:
       label: Ảnh hưởng
-      placeholder: % user bị ảnh hưởng, doanh thu, SLA...
+      placeholder: "% user bị ảnh hưởng, doanh thu, SLA..."
     validations:
       required: true
   - type: textarea
     id: mitigation
     attributes:
       label: Biện pháp tạm thời (mitigation)
+      description: Các bước giảm thiểu trước khi khắc phục triệt để

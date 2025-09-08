@@ -6,7 +6,11 @@ body:
     id: severity
     attributes:
       label: Mức độ nghiêm trọng (severity)
-      options: [sev/critical, sev/high, sev/medium, sev/low]
+      options:
+        - sev/critical
+        - sev/high
+        - sev/medium
+        - sev/low
     validations:
       required: true
   - type: textarea
@@ -22,17 +26,19 @@ body:
     attributes:
       label: Steps to Reproduce
       description: Các bước để tái hiện
-      placeholder: 1) … 2) … 3) …
+      placeholder: "1) … 2) … 3) …"
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
       label: Expected vs Actual
+      description: Kỳ vọng và thực tế
+      placeholder: "Expected: ...\nActual: ..."
     validations:
       required: true
   - type: input
     id: version
     attributes:
       label: Phiên bản/Commit/Env
-      placeholder: v1.2.3 / abc123 / prod
+      placeholder: "v1.2.3 / abc123 / prod"
