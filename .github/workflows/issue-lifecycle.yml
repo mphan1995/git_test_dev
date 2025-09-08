@@ -1,7 +1,7 @@
-name: Issue lifecycle
+name: "⏳ Issue lifecycle powered by Max Phan"
 on:
   schedule:
-    - cron: '0 2 * * *'  # chạy hàng ngày 02:00 UTC
+    - cron: '0 2 * * *'
   workflow_dispatch: {}
 
 jobs:
@@ -11,14 +11,17 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - uses: actions/stale@v9
+      - name: "🌙 Whisper of Max Phan — tidy up stale issues"
+        uses: actions/stale@v9
         with:
           days-before-stale: 21
           days-before-close: 7
           stale-issue-message: |
-            Issue không có cập nhật gần đây. Vui lòng phản hồi để tránh bị đóng.
+            Hey! Max Phan nhắc nhẹ 💡: Issue này chưa có cập nhật gần đây. 
+            Vui lòng phản hồi để tránh bị đóng nhé!
           close-issue-message: |
-            Đóng do không có cập nhật thêm. Có thể mở lại khi cần.
+            🚪 Issue đóng vì đã quá lâu không hoạt động. 
+            Đừng lo, cứ mở lại khi cần! — lời nhắn từ Max Phan 🌟
           stale-issue-label: 'stale'
           exempt-issue-labels: 'type/incident,sev/critical,sev/high'
           days-before-pr-stale: 30

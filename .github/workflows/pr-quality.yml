@@ -1,4 +1,4 @@
-name: PR quality
+name: "✅ PR quality — reviewed with Max Phan's smile"
 on:
   pull_request:
     types: [opened, edited, synchronize]
@@ -10,15 +10,19 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/labeler@v5
+      - name: "🏷️ Auto-label PR theo đường dẫn — by Max Phan"
+        uses: actions/labeler@v5
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
 
-      - name: Validate Conventional Commits title
+      - name: "🔖 Validate Conventional Commits"
         uses: amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           types: |
             feat, fix, chore, docs, refactor, test, perf, ci, build
+
+      - name: "🎉 Cheer up the team"
+        run: echo "Mỗi PR đều là một món quà 🎁 — lời nhắn từ Max Phan!"

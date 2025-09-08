@@ -1,4 +1,4 @@
-name: Issue triage
+name: "🤖 Issue triage with Max Phan's charm"
 on:
   issues:
     types: [opened, edited, labeled]
@@ -10,7 +10,7 @@ jobs:
       issues: write
       contents: read
     steps:
-      - name: Add needs/info if missing required fields
+      - name: "🔍 Check if issue needs more love (info)"
         uses: actions/github-script@v7
         with:
           script: |
@@ -26,25 +26,25 @@ jobs:
               await github.rest.issues.createComment({
                 ...context.repo,
                 issue_number: issue.number,
-                body: 'Cảm ơn bạn đã tạo issue! Vui lòng cung cấp thêm thông tin (log/steps/expected). Issue sẽ tự động đóng sau 7 ngày nếu không cập nhật.'
+                body: '🙏 Xin chào, Max Phan đây! Hãy thêm thông tin (log/steps/expected) để mọi người dễ xử lý nhé.'
               })
             }
 
-      - name: Auto assign by area label
+      - name: "🙌 Auto assign by area (Max Phan style)"
         env:
           LABELS: ${{ toJson(github.event.issue.labels.*.name) }}
         if: contains(join(fromJson(env.LABELS)), 'area/')
         uses: actions/github-script@v7
         with:
           script: |
-            const labels = ${'${{ env.LABELS }}'}
+            const labels = ${{ env.LABELS }}
             const area = JSON.parse(labels).find(n => n.startsWith('area/'))
             if (!area) return
             const map = {
-              'area/frontend': ['max-phan/frontend-team'],
-              'area/backend': ['max-phan/backend-team'],
-              'area/infra': ['max-phan/devops'],
-              'area/docs': ['max-phan/docs-team']
+              'area/frontend': ['your-org/frontend-team'],
+              'area/backend':  ['your-org/backend-team'],
+              'area/infra':    ['your-org/devops'],
+              'area/docs':     ['your-org/docs-team']
             }
             const assignees = map[area] || []
             if (assignees.length) {
@@ -52,5 +52,10 @@ jobs:
                 ...context.repo,
                 issue_number: context.issue.number,
                 assignees
+              })
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number: context.issue.number,
+                body: `🎯 Issue đã được assign nhờ sự sắp xếp của Max Phan. Chúc team làm việc vui vẻ!`
               })
             }

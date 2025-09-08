@@ -1,4 +1,4 @@
-name: Sync labels
+name: "🎨 Sync labels with Max Phan energy"
 on:
   push:
     branches: [main]
@@ -9,10 +9,16 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: crazy-max/ghaction-github-labeler@v5
+      - name: "📥 Checkout repo (Max style)"
+        uses: actions/checkout@v4
+
+      - name: "🔖 Sync all labels — crafted by Max Phan"
+        uses: crazy-max/ghaction-github-labeler@v5
         with:
           yaml_file: .github/labels.yml
           skip_delete: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "✅ Labels synced — thanks Max Phan!"
+        run: echo "All labels are now aligned perfectly ✨"
