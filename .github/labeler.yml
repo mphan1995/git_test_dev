@@ -10,3 +10,9 @@ area/infra:
 area/docs:
   - changed-files:
       - any-glob-to-any-file: ['docs/**', '**/*.md']
+infra/ci:
+  - changed-files:
+      - any-glob-to-any-file: ['.github/**']
+dependencies:
+  - head-branch: ['^dependabot/.*']
+

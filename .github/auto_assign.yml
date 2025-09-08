@@ -1,0 +1,9 @@
+addReviewers: true
+addAssignees: true
+reviewers:
+  - maxphan1995    
+assignees:
+  - maxphan1995
+numberOfReviewers: 1
+skipKeywords:
+  - WIP
