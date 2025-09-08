@@ -11,7 +11,7 @@ jobs:
       contents: read
     steps:
       - name: "🔍 Check if issue needs more love (info)"
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const issue = context.payload.issue
@@ -34,7 +34,7 @@ jobs:
         env:
           LABELS: ${{ toJson(github.event.issue.labels.*.name) }}
         if: contains(join(fromJson(env.LABELS)), 'area/')
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const labels = ${{ env.LABELS }}
