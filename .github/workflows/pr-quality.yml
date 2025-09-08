@@ -5,6 +5,7 @@ on:
 
 jobs:
   label-and-validate:
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -22,7 +23,21 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           types: |
-            feat, fix, chore, docs, refactor, test, perf, ci, build
+            feat
+            fix
+            chore
+            docs
+            refactor
+            test
+            perf
+            ci
+            build
+          scopes: |
+            deps
+            github-actions
+            dependencies
+            chore
+          requireScope: false
 
       - name: "🎉 Cheer up the team"
         run: echo "Mỗi PR đều là một món quà 🎁 — lời nhắn từ Max Phan!"
