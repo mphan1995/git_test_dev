@@ -41,10 +41,10 @@ jobs:
             const area = JSON.parse(labels).find(n => n.startsWith('area/'))
             if (!area) return
             const map = {
-              'area/frontend': ['your-org/frontend-team'],
-              'area/backend':  ['your-org/backend-team'],
-              'area/infra':    ['your-org/devops'],
-              'area/docs':     ['your-org/docs-team']
+              'area/frontend': ['mphan1995/frontend-team'],
+              'area/backend':  ['mphan1995/backend-team'],
+              'area/infra':    ['mphan1995/devops'],
+              'area/docs':     ['mphan1995/docs-team']
             }
             const assignees = map[area] || []
             if (assignees.length) {
