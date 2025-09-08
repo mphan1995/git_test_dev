@@ -1,0 +1,21 @@
+name: "✨ Feature request"
+description: Đề xuất tính năng
+labels: ["type/feature", "needs/triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Vấn đề cần giải quyết
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Giải pháp đề xuất
+      placeholder: Mô tả ngắn gọn
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Phương án thay thế

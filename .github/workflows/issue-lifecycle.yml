@@ -1,0 +1,25 @@
+name: Issue lifecycle
+on:
+  schedule:
+    - cron: '0 2 * * *'  # chạy hàng ngày 02:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 21
+          days-before-close: 7
+          stale-issue-message: |
+            Issue không có cập nhật gần đây. Vui lòng phản hồi để tránh bị đóng.
+          close-issue-message: |
+            Đóng do không có cập nhật thêm. Có thể mở lại khi cần.
+          stale-issue-label: 'stale'
+          exempt-issue-labels: 'type/incident,sev/critical,sev/high'
+          days-before-pr-stale: 30
+          days-before-pr-close: 14

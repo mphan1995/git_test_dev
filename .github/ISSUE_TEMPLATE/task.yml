@@ -1,0 +1,15 @@
+name: "🧱 Task"
+description: Công việc kỹ thuật
+labels: ["type/task", "needs/triage"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Bối cảnh / mục tiêu
+    validations:
+      required: true
+  - type: input
+    id: due
+    attributes:
+      label: Due date (nếu có)
+      placeholder: YYYY-MM-DD

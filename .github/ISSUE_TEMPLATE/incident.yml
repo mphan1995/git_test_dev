@@ -1,0 +1,22 @@
+name: "🚨 Incident"
+description: Sự cố sản xuất / nghiêm trọng
+labels: ["type/incident", "needs/triage"]
+body:
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: [sev/critical, sev/high]
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Ảnh hưởng
+      placeholder: % user bị ảnh hưởng, doanh thu, SLA...
+    validations:
+      required: true
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Biện pháp tạm thời (mitigation)

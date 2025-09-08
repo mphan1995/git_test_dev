@@ -1,0 +1,44 @@
+labels:
+  - name: type/bug
+    color: B60205
+    description: Bug
+  - name: type/feature
+    color: 0E8A16
+    description: Feature request
+  - name: type/task
+    color: 1D76DB
+    description: Technical task
+  - name: type/incident
+    color: D93F0B
+    description: Production incident
+
+  - name: needs/triage
+    color: E4E669
+  - name: needs/info
+    color: C2E0C6
+  - name: status/in-progress
+    color: FBCA04
+  - name: status/in-review
+    color: BFDADC
+  - name: status/done
+    color: 0E8A16
+  - name: stale
+    color: EEEEEE
+
+  - name: sev/critical
+    color: 8B0000
+  - name: sev/high
+    color: FF6F00
+  - name: sev/medium
+    color: FFBF00
+  - name: sev/low
+    color: C0C0C0
+
+  - name: area/frontend
+    color: 0052CC
+  - name: area/backend
+    color: 5319E7
+  - name: area/infra
+    color: 0B806A
+  - name: area/docs
+    color: 6A737D

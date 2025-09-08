@@ -1,0 +1,38 @@
+name: "🐛 Bug report"
+description: Báo cáo lỗi
+labels: ["type/bug", "needs/triage"]
+body:
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Mức độ nghiêm trọng (severity)
+      options: [sev/critical, sev/high, sev/medium, sev/low]
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Mô tả
+      description: Mô tả ngắn gọn lỗi
+      placeholder: "Lỗi gì xảy ra?"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Các bước để tái hiện
+      placeholder: 1) … 2) … 3) …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs Actual
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Phiên bản/Commit/Env
+      placeholder: v1.2.3 / abc123 / prod

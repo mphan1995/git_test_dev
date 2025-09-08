@@ -1,0 +1,10 @@
+# Định nghĩa chủ sở hữu mã
+# Cú pháp: pattern  @owner1  @owner2
+
+*                                       @your-org/core
+/docs/**                                @your-org/docs-team
+src/frontend/**                         @your-org/frontend-team
+src/backend/**                          @your-org/backend-team
+infra/**                                @your-org/devops
+
+# Theo label (dùng với workflow issue-triage.yml)

@@ -1,0 +1,12 @@
+area/frontend:
+  - changed-files:
+      - any-glob-to-any-file: ['src/frontend/**']
+area/backend:
+  - changed-files:
+      - any-glob-to-any-file: ['src/backend/**']
+area/infra:
+  - changed-files:
+      - any-glob-to-any-file: ['infra/**']
+area/docs:
+  - changed-files:
+      - any-glob-to-any-file: ['docs/**', '**/*.md']

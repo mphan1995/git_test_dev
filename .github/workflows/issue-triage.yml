@@ -1,0 +1,56 @@
+name: Issue triage
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    steps:
+      - name: Add needs/info if missing required fields
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue
+            const body = issue.body || ''
+            const needsInfo = body.length < 120
+            if (needsInfo) {
+              await github.rest.issues.addLabels({
+                ...context.repo,
+                issue_number: issue.number,
+                labels: ['needs/info']
+              })
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number: issue.number,
+                body: 'Cảm ơn bạn đã tạo issue! Vui lòng cung cấp thêm thông tin (log/steps/expected). Issue sẽ tự động đóng sau 7 ngày nếu không cập nhật.'
+              })
+            }
+
+      - name: Auto assign by area label
+        env:
+          LABELS: ${{ toJson(github.event.issue.labels.*.name) }}
+        if: contains(join(fromJson(env.LABELS)), 'area/')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = ${'${{ env.LABELS }}'}
+            const area = JSON.parse(labels).find(n => n.startsWith('area/'))
+            if (!area) return
+            const map = {
+              'area/frontend': ['your-org/frontend-team'],
+              'area/backend': ['your-org/backend-team'],
+              'area/infra': ['your-org/devops'],
+              'area/docs': ['your-org/docs-team']
+            }
+            const assignees = map[area] || []
+            if (assignees.length) {
+              await github.rest.issues.addAssignees({
+                ...context.repo,
+                issue_number: context.issue.number,
+                assignees
+              })
+            }
