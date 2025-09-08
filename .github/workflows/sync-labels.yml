@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "📥 Checkout repo (Max style)"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "🔖 Sync all labels — crafted by Max Phan"
         uses: crazy-max/ghaction-github-labeler@v5
